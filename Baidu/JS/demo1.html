@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script language=javascript src='http://api.map.baidu.com/api?v=2.0&ak=cHEvjUbXaza1NDj7qNGuTpcV'></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+
+    <!--加载鼠标绘制工具-->
+    <script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css">
+    <!--加载检索信息窗口-->
+    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css">
+
+
+    <script src="../../js/jQuery/jquery.js"></script>
+    <script src="baiduAPI.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap3.3/css/bootstrap.css"/>
+
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12 ">
+            <input type="button" id="showMap" value="地图显示"/><span id="show"></span>
+            <div id="allmap" style="height:100%; width:100%; display:block; min-height:800px ">
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var map = new baiduAPI();
+    map.initMap();
+    map.addControl(
+        {
+            location:1,
+            nav: 1,
+            scale: 1,
+            overview: 1,
+            maptype: 1,
+            city:1
+        });
+        map.addPoint();
+        map.toolbar();
+
+</script>
+<style type="text/css">
+    .anchorBL {
+        display: none;
+    }
+    .BMap_CityListCtrl{
+        position: absolute;
+        left: 100px !important;
+    }
+    .BMapLib_Drawing{
+        top:10px  !important;
+        right: 150px  !important;
+    }
+</style>
+</body>
+</html>
